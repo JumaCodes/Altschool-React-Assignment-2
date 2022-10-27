@@ -10,7 +10,6 @@ function Users() {
   const [currentPage, setCurrentpage] = useState(1);
   const [pagePerShow, setPagePerShow] = useState(2);
 
-
   const URL = 'https://randomuser.me/api/?page=5&results=10&seed=abcde'
 
 
@@ -18,10 +17,11 @@ function Users() {
     setLoading(true);
     axios.get(URL)
     .then((response) => {
-      setUserData(response.data.results)
+      setUserData(response.data.results);
     }).catch((error) => {
-      console.log(error);
-      setLoading(true);
+      if(error) {
+        throw new Error('error!!')
+      } 
     }).finally(() => {
       setLoading(false);
     })
@@ -49,20 +49,20 @@ function Users() {
             </div>
           </div>
 
-
-          <div className="user__section">
-              {loading ? <h2>Loading...</h2>
-              : 
-               <UserCard data={currentPosts} />
-              }
+            <div className="user__section">
+              
+                {loading ? <h2>Loading...</h2>
+                :
+                    <UserCard data={currentPosts} />
+                }
             </div>
             <div className='pagination'>
-                <Pagination 
-                totalPosts={userData.length} 
-                pagePerShow={pagePerShow} 
-                setCurrentPage={setCurrentpage} 
-                currentPage={currentPage}  
-              />
+                  <Pagination 
+                  totalPosts={userData.length} 
+                  pagePerShow={pagePerShow} 
+                  setCurrentPage={setCurrentpage} 
+                  currentPage={currentPage}  
+                />
             </div>
       </section>
   )

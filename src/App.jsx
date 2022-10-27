@@ -5,40 +5,45 @@ import About from './Pages/About';
 import Services from './Pages/Services';
 import Users from './Pages/Users';
 import Contact from './Pages/Contact';
+import PageNotFound from './Pages/PageNotFound';
 import { useState } from 'react';
 import SidebarLink from './components/SidebarLink';
 
+import {ErrorBoundary} from './components/ErrorBoundary';
+
 function App() {
   const [toggleSidebar, setToggleSidebar] = useState(true);
+
   return (
     <div className="main__container">
-      <div className="aside">
-        {/* <div className="nav__toggler">
-          <span></span>
-        </div> */}
+        <div className="aside">
+          {/* <div className="nav__toggler">
+            <span></span>
+          </div> */}
 
+          
 
-
-        {toggleSidebar && (
-          <>
+          {toggleSidebar &&  (
+            <>
             <div className="logo">
-              <Link exact to='/'><span>J</span>uma</Link>
-            </div>
-            <SidebarLink />
+            <Link exact to='/'><span>J</span>uma</Link>
+          </div>
+          <SidebarLink />
           </>
-        )
+          )
         }
-      </div>
+        </div>
 
-      <div className="main__content">
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/services' element={<Services />} />
-          <Route path='/users' element={<Users />} />
-          <Route path='/contact' element={<Contact />} />
-        </Routes>
-      </div>
+        <div className="main__content">
+            <Routes>
+              <Route exact  path='/' element={<Home />} />
+              <Route exact  path='/about' element={<About />} />
+              <Route exact  path='/services' element={<Services />} />
+              <Route exact  path='/users' element={<ErrorBoundary><Users /> </ErrorBoundary>} />
+              <Route exact  path='/contact' element={<Contact />} />
+              <Route path='*' element={<PageNotFound />} />
+            </Routes>
+        </div>
     </div>
   );
 }

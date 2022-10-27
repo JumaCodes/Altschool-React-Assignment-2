@@ -541,6 +541,10 @@ h3.my__profession {
   border-radius: 20px;
 }
 
+.user__section h2 {
+  color: white;
+}
+
 .user__card {
   width: 350px;
   max-width: 400px;
@@ -713,4 +717,34 @@ input::placeholder, textarea::placeholder {
   font-size: 14px;
   max-height: 9999px;
   transition: all 0.5s cubic-bezier(0,1,0,1);
+}
+
+.pageNot__found{
+  margin: 0 auto;
+  margin-top: -60px;
+  max-width: 80%;
+  padding-bottom: 40px;
+}
+
+
+.pageNot__found img{
+  width: 100%;
+}
+
+.pageNot__foundInfo {
+  background-image: url('./images/page404.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  display: grid;
+  place-items: center;
+}
+
+.pageNot__foundInfo h2 {
+  background: var(--skin-color);
+  padding: 10px;
+  color: white;
+  letter-spacing: 15px;
+  margin-top: 70px;
 }
