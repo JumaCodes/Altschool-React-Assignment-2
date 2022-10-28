@@ -12,27 +12,34 @@ import SidebarLink from './components/SidebarLink';
 import {ErrorBoundary} from './components/ErrorBoundary';
 
 function App() {
-  const [toggleSidebar, setToggleSidebar] = useState(true);
+  const [toggleSidebar, setToggleSidebar] = useState(false);
+
+
+  const openSidebar = (e) => {
+    e.preventDefault()
+    setToggleSidebar(true)
+  }
+
+  const closeSidebar = (e) => {
+    e.preventDefault()
+    setToggleSidebar(false)
+  }
 
   return (
     <div className="main__container">
-        <div className="aside">
-          {/* <div className="nav__toggler">
+          <div className="nav__toggler" onClick={openSidebar}>
             <span></span>
-          </div> */}
-
-          
-
-          {toggleSidebar &&  (
-            <>
+          </div> 
+      
+         <div className={toggleSidebar ? 'aside sidebar__off' : 'aside'}>
+           <div className='close' onClick={closeSidebar}>
+            <i className='fa fa-times'></i>
+           </div>
             <div className="logo">
             <Link exact to='/'><span>J</span>uma</Link>
           </div>
-          <SidebarLink />
-          </>
-          )
-        }
-        </div>
+          <SidebarLink setToggleSidebar={setToggleSidebar} />
+        </div> 
 
         <div className="main__content">
             <Routes>

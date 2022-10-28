@@ -189,13 +189,13 @@ ul {
   right: 0;
 }
 
-.aside .nav__toggler {
+ .nav__toggler {
   height: 40px;
   width: 45px;
   border: 1px solid var(--bg-black-50);
   cursor: pointer;
   position: fixed;
-  left: 300px;
+  left: 20px;
   top: 20px;
   border-radius: 5px;
   background: var(--bg-black-100);
@@ -204,7 +204,7 @@ ul {
   justify-content: center;
 }
 
-.aside .nav__toggler span {
+ .nav__toggler span {
   height: 2px;
   width: 18px;
   background: var(--skin-color);
@@ -212,7 +212,7 @@ ul {
   position: relative;
 }
 
-.aside .nav__toggler span::before {
+.nav__toggler span::before {
   content: '';
   height: 2px;
   width: 18px;
@@ -222,7 +222,7 @@ ul {
   left: 0;
 }
 
-.aside .nav__toggler span::after {
+ .nav__toggler span::after {
   content: '';
   height: 2px;
   width: 18px;
@@ -231,6 +231,22 @@ ul {
   top: 6px;
   left: 0;
 }
+
+ .aside .close {
+  position: absolute;
+   bottom: 10px;
+   left: 20px;
+   background-color: var(--skin-color);
+   padding: 5px 10px;
+   color: white;
+   border-radius: 10px;
+   cursor: pointer;
+   display: none;
+  }
+
+ .aside .close i {
+   font-size: 25px;
+  }
 
 .aside .nav {
   margin-top: 50px;
@@ -578,16 +594,17 @@ h3.my__profession {
 
 .pagination {
   width: 50%;
-  margin: 15px auto;
   display: flex;
   justify-items: center;
   align-items: center;
+  margin: 15px auto;
   padding-bottom: 30px;
 }
 
 .pagination .pages__btns {
   margin: 0 5px;
   padding: 5px 10px;
+  text-align: center;
   border: 1px solid var(--bg-black-50);
   background: var(--text-black-700);
   color: white;
@@ -747,4 +764,114 @@ input::placeholder, textarea::placeholder {
   color: white;
   letter-spacing: 15px;
   margin-top: 70px;
+}
+
+.err {
+  display: grid;
+  place-items: center;
+  font-size: 40px;
+  padding-top: 200px;
+}
+
+@media (max-width: 1199px) {
+   
+}
+
+@media (max-width: 991px) {
+  .aside {
+    left: -270px;
+  }
+
+  .main__content {
+    padding-left: 0;
+  }
+  .about .about__content .personal__info .info__item p span {
+    display: block;
+    margin-left: 0;
+  }
+  
+  .services .wrapper {
+    width: 50%;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .about .about__content .education, .about .about__content .experience{
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+}
+
+@media (max-width: 767px) {
+  .form, .wrapper, .about .about__content .skills, .about .about__content .personal__info {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .short__input {
+  flex-direction: column;
+}
+
+.short__input input {
+  width: 100%;
+}
+input, textarea {
+  margin-bottom: 25px;
+}
+
+.aside{
+  left: -270px;
+  transition: all 0.3s ease;
+}
+
+  .sidebar__off {
+    left: 0px;
+  }
+
+  .aside .close {
+    display: inline-block;
+  }
+
+.main__content {
+  padding-left: 0;
+}
+
+.about .about__content .personal__info .info__item p span {
+  display: block;
+  margin-left: 0;
+}
+
+.home .home__img {
+  display: none;
+}
+
+.home .home__info {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+.nav__toggler {
+    display: flex;
+    flex-direction: columns;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .user__section {
+  flex-direction: column;
+}
+
+.user__card {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+  .pagination {
+  width: 80%;
+    margin: 15px auto;
+}
 }
